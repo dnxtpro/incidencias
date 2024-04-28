@@ -1,0 +1,12 @@
+.ftco-section {
+    padding: 7em 0;
+    display: block;
+    box-sizing: border-box;
+}
+.centrar{
+    display: flex;
+    justify-content: center;
+}
+.dialogo{
+    background-color: #0E678D;
+  }

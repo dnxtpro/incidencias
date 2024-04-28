@@ -1,0 +1,36 @@
+
+
+
+    
+    
+    
+    <mat-dialog-content class="login-box">
+        <p  class="negrita alinear"> INICA SESION </p>
+<form [formGroup]="loginForm" class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
+    <div class="form-group ">
+      <label class="negrita" for="username">Username:</label>
+    
+      <input formControlName="username"  type= "username" class="quitar-bordes form-control"  type="text" id="username" name="username"  [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"/>
+      <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+        <div *ngIf="f['username'].errors['required']">Username is required</div>
+    </div>
+    </div>
+<div class="form-group ">
+      <label class="negrita" for="password">Password:</label>
+   
+      <input formControlName="password" class="  form-control quitar-bordes border-bottom" type="password" id="password-field" name="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"/>
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+    </div>
+    </div>
+    
+    <button class="btn gris mt-2 " (click)="onClick()" type="submit">Login</button>
+    
+  </form>
+    </mat-dialog-content>
+
+
+
+
+
+

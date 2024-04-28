@@ -1,0 +1,129 @@
+
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" class="stylesheet">
+   
+
+
+
+    <div class="wrapper">
+        <aside id="sidebar" [ngClass]="{ 'expand': isSidebarOpen }">
+            <div class="d-flex">
+                <button class="toggle-btn" (click)="toggleSidebar()" type="button">
+                    <i *ngIf="!isSidebarOpen" class="lni lni-grid-alt"></i>
+                    <i *ngIf="isSidebarOpen" class="lni lni-backward"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">INCIDENCIAS</a>
+                </div>
+                
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="/userlist" class="sidebar-link">
+                        <i class="lni lni-user"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/lista-empresas" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Empresas</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                        <i class="lni lni-protection"></i>
+                        <span>Auth</span>
+                    </a>
+                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a (click)="logout()" class="sidebar-link">Logout</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                        <i class="lni lni-layout"></i>
+                        <span>Multi Level</span>
+                    </a>
+                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                                Two Links
+                            </a>
+                            <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">Link 1</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">Link 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-popup"></i>
+                        <span>Notification</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" (click)="logout()" class="sidebar-link">
+                        <i class="lni lni-exit"></i>
+                        <span>LogOut</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i (click)="logout()" class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <div class="main p-0">
+            <div class="text-center">
+                <h1>
+                  <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+                    <div class="container">
+                      <div class="navbar-header">
+                        <a href="/" class="navbar-brand">Hello</a>
+                      </div>
+                      <nav >
+                        <ul class="nav navbar-nav">
+                          <li>
+                            <a data-bs-toggle="collapse" data-bs-target="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" class="hover"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="50" class="img-fluid rounded-circle mb-0 img-thumbnail shadow-sm">
+                              <span></span>
+                            </a>
+                          </li>
+                        </ul>
+                           
+                         
+                      </nav>
+                    </div>
+                  </header>
+                  <div class="main p-3">
+                   <nav> <ul class="col-2 sidebar-dropdown list-unstyled collapse" id="multiCollapseExample1">
+                    <div>Usuario:{{users[0]}} Empresa:{{users[4]}} Role:{{users[3]}} </div>
+                </ul></nav>
+                   <router-outlet></router-outlet>
+                   </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+

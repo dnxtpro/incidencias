@@ -1,0 +1,31 @@
+
+<div class="container-fluid">
+        <p  class="negrita alinear"> New Ticket </p>
+<form [formGroup]="loginForm" class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
+    <div class="form-group ">
+      <label class="negrita" for="title">Title</label>
+    
+      <input formControlName="title"  type= "title" class="quitar-bordes form-control"  type="text" id="title" name="title"  [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"/>
+      <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+        <div *ngIf="f['title'].errors['required']">title is required</div>
+    </div>
+    </div>
+<div class="form-group ">
+      <label class="negrita" for="description">Description</label>
+   
+      <input formControlName="description" class="form-control quitar-bordes border-bottom" type="description" id="description-field" name="description" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"/>
+      <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+       
+    </div>
+    </div>
+    
+    <button class="btn gris mt-2 " (click)="onClick()" type="submit">Login</button>
+    
+  </form>
+</div>
+
+
+
+
+
+

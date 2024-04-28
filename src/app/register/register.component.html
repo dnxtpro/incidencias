@@ -1,0 +1,37 @@
+<!-- register.component.html -->  
+    <div class="row justify-content-center">
+      <div class=" login-box shadow p-3  rounded">
+<form  class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
+    <div class="form-group ">
+      <label for="username">Username:</label>
+      <input class="quitar-bordes form-control" type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    </div>
+    <div *ngIf="showErrorMessage" class="error-message">
+      {{errorMessage}}
+    </div>
+    <div class="form-group ">
+      <label for="email">Email:</label>
+      <input class="quitar-bordes form-control" type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <div class="form-group ">
+      <label for="password">Password:</label>
+      <input class="quitar-bordes form-control" type="password" id="password" name="password" [(ngModel)]="user.password" required>
+    </div>
+    <div class="form-group ">
+        <label for="role">Role:</label>
+        <select class="custom-select  form-select form-select-sm mb-3  " id="role" name="role" [(ngModel)]="user.userrole" required>
+          <option *ngFor="let role of roles" [value]="role.id">{{ role.rolename }}</option>
+        </select>
+      </div>
+      <div class="form-group ">
+        <label for="role">Empresa:</label>
+        <select class="custom-select  form-select form-select-sm mb-3  " id="empresa" name="empresa" [(ngModel)]="user.empresa" required>
+          <option *ngFor="let empresas of empresa" [value]="empresas.id">{{empresas.nombre }}</option>
+        </select>
+      </div>
+    <button class="btn gris mt-2" type="submit">Register</button>
+  </form>
+</div>
+
+</div>
+
