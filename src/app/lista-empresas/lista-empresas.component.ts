@@ -25,10 +25,6 @@ ngOnInit(){
       console.error('Error fetching empresas', error);
     }
   );
-
-
-  
-
 }
 
 

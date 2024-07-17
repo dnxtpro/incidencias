@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClient } from '@angular/common/http';
 import { UserListComponent } from './user-list.component';
 
 describe('UserListComponent', () => {

@@ -22,4 +22,7 @@ export class UserService {
         const body = { title,description };
         return this.http.post(`${this.apiUrl}/post-ticket`, body);
     }
+    getTickets(){
+        return this.http.get<User[]>(`${this.apiUrl}/getTickets`)
+    }
 }

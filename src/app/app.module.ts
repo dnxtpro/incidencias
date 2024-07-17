@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import { EditaruserComponent } from './editaruser/editaruser.component';
 import { ConfirmationDialogComponent } from './confirmacion/confirmacion.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { DeclararincidenciaComponent } from './declararincidencia/declararincidencia.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TicketComponent } from './ticket/ticket.component';
     EditaruserComponent,
     ConfirmationDialogComponent,
     TicketComponent,
+    DeclararincidenciaComponent,
    
   ],
   imports: [

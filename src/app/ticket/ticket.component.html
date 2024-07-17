@@ -1,5 +1,7 @@
 
-<div class="container-fluid">
+<div class="row justify-content-center">
+  <div class="row justify-content-center">
+    <div class="login-box shadow p-3  rounded">
         <p  class="negrita alinear"> New Ticket </p>
 <form [formGroup]="loginForm" class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
     <div class="form-group ">
@@ -19,9 +21,11 @@
     </div>
     </div>
     
-    <button class="btn gris mt-2 " (click)="onClick()" type="submit">Login</button>
+    <button class="btn gris mt-2 negrita " (click)="onClick()" type="submit">ADD</button>
     
   </form>
+</div>
+</div>
 </div>
 
 

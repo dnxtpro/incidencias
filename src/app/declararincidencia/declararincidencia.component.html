@@ -1,0 +1,47 @@
+
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+<div class=" fixed-bottom ">
+<div class="position-absolute bottom-0 end-0"><a class="btn-lg pull-center" (click)="abrirModal()"><i class="m-2 puto bi bi-plus-circle" style="font-size: 2.6rem"></i></a></div>
+</div>
+<div class="container-fluid p-0">
+<div class="row">
+<div class="col-12">
+<div class="panel">
+<div class="panel-body shadow table-responsive">
+<table class="table table-hover">
+<thead>
+ <tr>
+ 
+ <th>Id</th>
+ <th>Title</th>
+ <th>Description</th>
+ <th>Creado el</th>
+ <th>Estado</th>
+ <th>Usuario</th> 
+       
+ </tr>
+</thead>
+<tbody >
+ <tr *ngFor="let empresa of ticket">
+  
+                      <td>{{empresa.id}}</td>
+                      <td>{{empresa.title}}</td>
+                      <td>{{empresa.description}}</td>
+                      <td>{{empresa.creationtime}}</td>
+                      <td>{{empresa.state}}</td>
+                      <td>{{empresa.user}}</td>
+  </tr> 
+ </tbody>
+</table>
+</div>
+<div class="panel-footer">
+
+</div>
+</div>
+</div>
+</div>
+</div>
