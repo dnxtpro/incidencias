@@ -22,7 +22,7 @@ export class RegisterComponent {
   ngOnInit() {
     this.authService.getRoles().subscribe(
       (response) => {
-        console.log(response)
+        console.log(response,'los roles')
         this.roles = response; // Asume que el backend devuelve un array de roles
       },
       (error) => {

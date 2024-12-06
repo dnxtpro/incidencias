@@ -6,22 +6,37 @@ import { EditModalComponent } from '../editmodal/editmodal.component';
 import { EditaruserComponent } from '../editaruser/editaruser.component';
 import { RegisterComponent } from '../register/register.component';
 import { ConfirmationDialogComponent } from '../confirmacion/confirmacion.component';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { MatSort } from '@angular/material/sort';
+import { ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+interface User {
+  username: string;
+  email: string;
+  empresa:number;
+  userrole:number;
+  roleName: string;
+  nombre: string;
+}
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent {
-  
-  user: any = {};
+ 
+  user: User[] = [];
   roles: any[] = [];
   empresa: any[]=[];
+  
 
   constructor(private authService: AuthService,private empresaService:EmpresaService,public dialog:MatDialog) {}
   ngOnInit() {
 
     this.authService.getUser().subscribe(
-      (response) => {
+      (response: User[]) => {
         console.log(response)
         this.user = response; // Asume que el backend devuelve un array de roles
       },
@@ -127,6 +142,43 @@ export class UserListComponent {
       );
       
     });
+  }
+  enableEdit(user:any) {
+    user.isEditing = true;
+  }
+
+  saveChanges(user:any) {
+    console.log(user)
+    const updatedUser = {
+      ...user
+
+    };
+    console.log(updatedUser)
+    this.authService.editarUsuario([updatedUser]).subscribe(
+      (response) => {
+        console.log('Respuesta del backend:', response);
+        
+        // Actualizar la lista de usuarios después de la respuesta del backend
+        this.authService.getUser().subscribe(
+          (response) => {
+            console.log(response);
+            this.user = response; // Asume que el backend devuelve la lista actualizada
+          },
+          (error) => {
+            console.error('Error fetching users', error);
+          }
+        );
+      },
+      (error) => {
+        console.error('Error al enviar los datos al backend:', error);
+      }
+    )
+    user.isEditing = false;
+  }
+
+  cancelEdit(user:any) {
+    // Cancela la edición sin guardar cambios
+    user.isEditing = false;
   }
 
 }

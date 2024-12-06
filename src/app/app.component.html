@@ -9,10 +9,10 @@
 
     <div class="wrapper">
         <aside id="sidebar" [ngClass]="{ 'expand': isSidebarOpen }">
-            <div class="d-flex">
-                <button class="toggle-btn" (click)="toggleSidebar()" type="button">
-                    <i *ngIf="!isSidebarOpen" class="lni lni-grid-alt"></i>
-                    <i *ngIf="isSidebarOpen" class="lni lni-backward"></i>
+            <div class="d-flex align-items-center">
+                <button mat-icon-button class="toggle-btn" extend (click)="toggleSidebar()" type="button">
+                    <mat-icon *ngIf="!isSidebarOpen">menu</mat-icon>
+                    <mat-icon *ngIf="isSidebarOpen">menu_open</mat-icon>
                 </button>
                 <div class="sidebar-logo">
                     <a href="#">INCIDENCIAS</a>
@@ -93,28 +93,7 @@
         <div class="main p-0">
             <div class="text-center">
                 <h1>
-                  <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-                    <div class="container">
-                      <div class="navbar-header">
-                        <a href="/" class="navbar-brand">Hello</a>
-                      </div>
-                      <nav >
-                        <ul class="nav navbar-nav">
-                          <li>
-                            <a data-bs-toggle="collapse" data-bs-target="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" class="hover"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="50" class="img-fluid rounded-circle mb-0 img-thumbnail shadow-sm">
-                              <span></span>
-                            </a>
-                          </li>
-                        </ul>
-                           
-                         
-                      </nav>
-                    </div>
-                  </header>
                   <div class="main p-3">
-                   <nav> <ul class="col-2 sidebar-dropdown list-unstyled collapse" id="multiCollapseExample1">
-                    <div>Usuario:{{users[0]}} Empresa:{{users[4]}} Role:{{users[3]}} </div>
-                </ul></nav>
                    <router-outlet></router-outlet>
                    </div>
                 </h1>

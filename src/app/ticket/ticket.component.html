@@ -1,34 +1,38 @@
 
-<div class="row justify-content-center">
-  <div class="row justify-content-center">
-    <div class="login-box shadow p-3  rounded">
-        <p  class="negrita alinear"> New Ticket </p>
-<form [formGroup]="loginForm" class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
-    <div class="form-group ">
-      <label class="negrita" for="title">Title</label>
+  <div class="container-fluid d-flex justify-content-center ">
     
-      <input formControlName="title"  type= "title" class="quitar-bordes form-control"  type="text" id="title" name="title"  [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"/>
-      <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
-        <div *ngIf="f['title'].errors['required']">title is required</div>
-    </div>
-    </div>
-<div class="form-group ">
-      <label class="negrita" for="description">Description</label>
-   
-      <input formControlName="description" class="form-control quitar-bordes border-bottom" type="description" id="description-field" name="description" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"/>
-      <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
-       
-    </div>
-    </div>
-    
-    <button class="btn gris mt-2 negrita " (click)="onClick()" type="submit">ADD</button>
-    
-  </form>
-</div>
-</div>
-</div>
+      <mat-card class="col-6">
+        <mat-card-header>
+        <h2>New Ticket</h2>
+      </mat-card-header>
+    <mat-card-content>
+      
+    </mat-card-content>
+    <form class="d-flex flex-column" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label class="negrita" for="title">Title</mat-label>
+      
+        <input matInput formControlName="title"  type= "title"  type="text" id="title" name="title"  [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"/>
 
+        <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+          <div *ngIf="f['title'].errors['required']">Title is required</div>
+      </div>
+    </mat-form-field>
+  <mat-form-field>
+        <mat-label class="negrita" for="description">Description</mat-label>
+     
+        <textarea matInput placeholder="Describe the incident..." formControlName="description" type="description" id="description-field" name="description" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"></textarea>
+        <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+         
+      </div>
+    </mat-form-field>
+      
+      <button class="btn gris mt-2 negrita " (click)="onClick()" type="submit">ADD</button>
+      
+    </form>
+    </mat-card>
 
+</div>
 
 
 

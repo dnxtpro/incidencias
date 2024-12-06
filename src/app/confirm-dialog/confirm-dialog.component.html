@@ -1,0 +1,9 @@
+<!-- confirm-dialog.component.html -->
+<h1 mat-dialog-title>Confirmación</h1>
+<div mat-dialog-content>
+  <p>{{data.message}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onConfirm()">Sí</button>
+  <button mat-button (click)="onCancel()">No</button>
+</div>

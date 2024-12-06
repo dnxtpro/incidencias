@@ -6,6 +6,17 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Cosas } from '../models/cosas';
 
+export interface Cerdo{
+    id:number,
+    title:string,
+    description:string,
+    creationtime:string,
+    state:string,
+    user:number,
+  
+  
+  }
+
 @Injectable({ providedIn: 'root' })
 export class UserService {
     private apiUrl = 'http://localhost:4001/auth';
@@ -23,6 +34,6 @@ export class UserService {
         return this.http.post(`${this.apiUrl}/post-ticket`, body);
     }
     getTickets(){
-        return this.http.get<User[]>(`${this.apiUrl}/getTickets`)
+        return this.http.get<Cerdo[]>(`${this.apiUrl}/getTickets`)
     }
 }

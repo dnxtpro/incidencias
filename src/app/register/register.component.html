@@ -1,37 +1,35 @@
-<!-- register.component.html -->  
-    <div class="row justify-content-center">
-      <div class=" login-box shadow p-3  rounded">
+<h2 mat-dialog-title>Add User</h2>
+<mat-dialog-content>
+    
 <form  class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
-    <div class="form-group ">
-      <label for="username">Username:</label>
-      <input class="quitar-bordes form-control" type="text" id="username" name="username" [(ngModel)]="user.username" required>
-    </div>
+    <mat-form-field>
+      <mat-label  for="username">Username:</mat-label>
+      <input matInput type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    </mat-form-field>
     <div *ngIf="showErrorMessage" class="error-message">
       {{errorMessage}}
-    </div>
-    <div class="form-group ">
-      <label for="email">Email:</label>
-      <input class="quitar-bordes form-control" type="email" id="email" name="email" [(ngModel)]="user.email" required>
-    </div>
-    <div class="form-group ">
-      <label for="password">Password:</label>
-      <input class="quitar-bordes form-control" type="password" id="password" name="password" [(ngModel)]="user.password" required>
-    </div>
-    <div class="form-group ">
-        <label for="role">Role:</label>
-        <select class="custom-select  form-select form-select-sm mb-3  " id="role" name="role" [(ngModel)]="user.userrole" required>
-          <option *ngFor="let role of roles" [value]="role.id">{{ role.rolename }}</option>
-        </select>
-      </div>
-      <div class="form-group ">
-        <label for="role">Empresa:</label>
-        <select class="custom-select  form-select form-select-sm mb-3  " id="empresa" name="empresa" [(ngModel)]="user.empresa" required>
-          <option *ngFor="let empresas of empresa" [value]="empresas.id">{{empresas.nombre }}</option>
-        </select>
-      </div>
+    </div> 
+   <mat-form-field>
+      <mat-label for="email">Email:</mat-label>
+      <input matInput  type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password">Password:</mat-label>
+      <input matInput type="password" id="password" name="password" [(ngModel)]="user.password" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="role">Role:</mat-label>
+        <mat-select  id="role" name="role" [(ngModel)]="user.userrole" required>
+          <mat-option *ngFor="let role of roles" [value]="role.id">{{role.rolename}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="role">Empresa:</mat-label>
+        <mat-select id="empresa" name="empresa" [(ngModel)]="user.empresa" required>
+          <mat-option *ngFor="let empresas of empresa" [value]="empresas.id">{{empresas.nombre }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     <button class="btn gris mt-2" type="submit">Register</button>
   </form>
-</div>
 
-</div>
-
+</mat-dialog-content>

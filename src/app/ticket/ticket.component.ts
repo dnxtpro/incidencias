@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { first } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
@@ -17,7 +18,7 @@ submitted = false;
 error = '';
 
 
-constructor(private formBuilder: FormBuilder,private userService:UserService,private router: Router)
+constructor( public dialogRef: MatDialogRef<TicketComponent>,private formBuilder: FormBuilder,private userService:UserService,private router: Router)
   {}
 
 ngOnInit(): void {
@@ -43,8 +44,10 @@ onSubmit() {
         this.loading = false;
       }
     });
+    this.dialogRef.close();
 }
 onClick(): void {
+  
   
 }
 }

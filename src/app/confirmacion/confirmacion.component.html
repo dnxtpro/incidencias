@@ -1,4 +1,7 @@
-<p>¿Está seguro de que desea eliminar este elemento?</p>
 
-<button mat-button (click)="cancel()">Cancelar</button>
-<button mat-button (click)="confirm()">Confirmar</button>
+<h2 mat-dialog-title>Delete</h2>
+<mat-dialog-content>Are you shure you want to delete the user?</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+    <button mat-raised-button (click)="confirm()">Confirmar</button>
+</mat-dialog-actions>

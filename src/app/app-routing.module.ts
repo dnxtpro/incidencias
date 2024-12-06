@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   {path:'ticket', component: TicketComponent},
-{path:'incidencia',component:DeclararincidenciaComponent},
+ {path:'incidencia',component:DeclararincidenciaComponent},
   {path:'userlist', component: UserListComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'lista-empresas',component:ListaEmpresasComponent,canActivate:[AuthGuard,TopAdminGuard,AdminGuard]},
 ];

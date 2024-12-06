@@ -1,29 +1,24 @@
 <!-- register.component.html -->
 
-
-    <div class="row justify-content-center">
-      <div class="row justify-content-center">
-      
-        <div class="login-box shadow p-3  rounded">
-  <form  class="d-flex flex-column justify-content-center align-items-center" (ngSubmit)="onSubmit()">
-      <div class="form-group ">
-        <label for="username">Nombre:</label>
-        <input class="quitar-bordes form-control" type="text" id="username" name="username" [(ngModel)]="Empresa.nombre" required>
-      </div>
-      <div class="form-group ">
-        <label for="email">Ciudad:</label>
-        <input class="quitar-bordes form-control" type="email" id="email" name="email" [(ngModel)]="Empresa.ciudad" required>
-      </div>
-      <div class="form-group ">
-        <label for="empresa">Sector:</label>
-        <input class="quitar-bordes form-control" type="sector" id="sector" name="sector" [(ngModel)]="Empresa.sector" required>
-      </div>
-      <div class="form-group ">
-        <label for="empresa">Responsable:</label>
-        <input class="quitar-bordes form-control" type="resp" id="resp" name="resp" [(ngModel)]="Empresa.responsable" required>
-      </div>
-      <button class="btn gris mt-2" type="submit">Register</button>
+<h2 mat-dialog-title>Add Company</h2>
+    <mat-dialog-content>
+    <form class="d-flex flex-column" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label for="username">Nombre:</mat-label>
+        <input matInput  type="text" id="username" name="username" [(ngModel)]="Empresa.nombre" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="email">Ciudad:</mat-label>
+        <input matInput  type="email" id="email" name="email" [(ngModel)]="Empresa.ciudad" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="empresa">Sector:</mat-label>
+        <input matInput  type="sector" id="sector" name="sector" [(ngModel)]="Empresa.sector" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="empresa">Responsable:</mat-label>
+        <input matInput  type="resp" id="resp" name="resp" [(ngModel)]="Empresa.responsable" required>
+      </mat-form-field>
+      <button mat-button color="secondary" type="submit">Register</button>
     </form>
-  </div>
-  </div>
-  </div>
+  </mat-dialog-content> 

@@ -13,6 +13,7 @@ import { Empresa } from '../models/empresas';
 })
 export class EmpresaService {
   private apiUrl = 'http://localhost:4001/auth';
+  private apiUrl2 = 'http://localhost:4001';
   constructor(private router: Router,private http: HttpClient) { }
 
   addEmpresa(Empresa:any):Observable<any>{
@@ -30,5 +31,8 @@ export class EmpresaService {
   }
   borrarEmpresa(id: number):Observable<any>{
     return this.http.delete<any>(`${this.apiUrl}/delete-empresas/${id}`);
+  }
+  editarEstado(id:number,nuevoEstado:string):Observable<any>{
+    return this.http.put(`${this.apiUrl}/edit-ticket/${id}`,{estado:nuevoEstado})
   }
 }

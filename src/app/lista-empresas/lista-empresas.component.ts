@@ -6,18 +6,27 @@ import { EditModalComponent } from '../editmodal/editmodal.component';
 import { AddEmpresaComponent } from '../add-empresa/add-empresa.component';
 import { ConfirmationDialogComponent } from '../confirmacion/confirmacion.component';
 
+interface empresa{
+  id:number;
+  nombre:string;
+  ciudad:string;
+  sector:string;
+  responsable:string;
+
+}
+
 @Component({
   selector: 'app-lista-empresas',
   templateUrl: './lista-empresas.component.html',
   styleUrl: './lista-empresas.component.css'
 })
 export class ListaEmpresasComponent implements OnInit{
-  Empresa:any={}
+  Empresa: empresa[]=[];
   constructor(private EmpresaService:EmpresaService,public dialog:MatDialog){}
 
 ngOnInit(){
   this.EmpresaService.getEmpresas().subscribe(
-    (response) => {
+    (response:empresa[]) => {
       console.log(response)
       this.Empresa = response; 
     },

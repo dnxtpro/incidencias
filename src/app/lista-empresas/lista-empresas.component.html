@@ -1,52 +1,62 @@
 
-
+ 
 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
 <div class=" fixed-bottom ">
-<div class="position-absolute bottom-0 end-0"><a (click)="abrirModal()" class="btn-lg pull-center"><i class="m-2 puto bi bi-plus-circle" style="font-size: 2.6rem"></i></a></div>
+<div class="position-absolute bottom-0 end-0 m-5">
+  <button (click)="abrirModal()" mat-mini-fab><mat-icon>add</mat-icon></button></div>
 </div>
-<div class="container-fluid p-0">
+<div class="container-fluid">
 <div class="row">
-<div class="col-12">
-<div class="panel">
-<div class="panel-body shadow table-responsive">
-<table class="table table-hover">
-<thead>
- <tr>
- 
- <th>Id</th>
- <th>Nombre</th>
- <th>Ciudad</th>
- <th>Sector</th>
- <th>Responsable</th>
- <th>Acciones</th> 
-       
- </tr>
-</thead>
-<tbody >
- <tr *ngFor="let empresa of Empresa">
-  
-                      <td>{{empresa.id}}</td>
-                      <td>{{empresa.nombre}}</td>
-                      <td>{{empresa.ciudad}}</td>
-                      <td>{{empresa.sector}}</td>
-                      <td>{{empresa.responsable}}</td>
-                      <td>
-                        <ul class="action-list d-flex justify-content-even">
-                        <li class="mr-3 gorila"><i (click)="editarObjeto(empresa)" class="bi bi-pencil-square" style="font-size: 1.4rem">  </i></li>
-                        <li class="ml-10 gorila"><i (click)="borrarObjeto(empresa)" class="fa fa-times gorila" style="font-size: 1.4rem"></i></li>
-                        </ul>
-                      </td>
-  </tr> 
- </tbody>
-</table>
+  <mat-card-header><h2>COMPANIES MANAGEMENT</h2></mat-card-header>
 </div>
-<div class="panel-footer">
+<mat-divider></mat-divider>
 
-</div>
-</div>
-</div>
+<div class="row mt-3">
+  <table mat-table [dataSource]="Empresa" class="mat-elevation-z8">
+
+    <!-- Username Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+    </ng-container>
+  
+    <!-- Email Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Name </th>
+      <td mat-cell *matCellDef="let user"> {{user.nombre}} </td>
+    </ng-container>
+  
+    <!-- Role Column -->
+    <ng-container matColumnDef="ciudad">
+      <th mat-header-cell *matHeaderCellDef> City</th>
+      <td mat-cell *matCellDef="let user"> {{user.ciudad}} </td>
+    </ng-container>
+  
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="sector">
+      <th mat-header-cell *matHeaderCellDef> Sector </th>
+      <td mat-cell *matCellDef="let user"> {{user.sector}} </td>
+    </ng-container>
+    <ng-container matColumnDef="responsable">
+      <th mat-header-cell *matHeaderCellDef> Responsable </th>
+      <td mat-cell *matCellDef="let user"> {{user.responsable}} </td>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Actions</th>
+      <td mat-cell *matCellDef="let user"> 
+        <button color="primary"class="mx-2" mat-mini-fab (click)="editarObjeto(user)"><mat-icon>edit</mat-icon></button>
+        <button color="warn"   class="mx-2" mat-mini-fab (click)="borrarObjeto(user)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="['id', 'nombre', 'ciudad', 'sector','responsable','acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id', 'nombre', 'ciudad', 'sector','responsable','acciones'];"></tr>
+  
+  </table>
+  
 </div>
 </div>
